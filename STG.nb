@@ -1,0 +1,1130 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     48748,       1122]
+NotebookOptionsPosition[     48063,       1105]
+NotebookOutlinePosition[     48406,       1120]
+CellTagsIndexPosition[     48363,       1117]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"0.", "Shift"}], "+", 
+   RowBox[{
+   "Enter", " ", "to", " ", "run", " ", "all", " ", "four", " ", "following", 
+    " ", 
+    RowBox[{"sections", ".", 
+     RowBox[{"Restart", ":", 
+      RowBox[{"re", "-", 
+       RowBox[{
+       "run", " ", "section", " ", "4.", " ", "Change", " ", "difficulty"}]}],
+       ":", 
+      RowBox[{"section", " ", "3.1", " "}]}]}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.7771320583740816`*^9, 3.7771320895477962`*^9}, {
+   3.7771321341874666`*^9, 3.7771321606528673`*^9}, 
+   3.777162410179336*^9},ExpressionUUID->"125d9e7a-63b4-441f-bed9-\
+71f8b21de3d2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"1.", "Graphics", " ", "Models"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"modelPlayer", "[", "p_", "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Polygon", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1.5"}], ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1.5", ",", "0"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.9"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.5"}], ",", "0.5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0.5", ",", "0.5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "2"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "1"}], ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "0.5"}], "}"}]}], "}"}]}], "}"}], "+", 
+        RowBox[{"Table", "[", 
+         RowBox[{"p", ",", "3", ",", "3"}], "]"}]}], "]"}], ",", "Orange", 
+      ",", 
+      RowBox[{"Polygon", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.4"}], ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "0.2"}], ",", 
+              RowBox[{"-", "1.5"}]}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0.4", ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", 
+              RowBox[{"-", "0.7"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0.2", ",", 
+              RowBox[{"-", "1.5"}]}], "}"}]}], "}"}]}], "}"}], "+", 
+        RowBox[{"Table", "[", 
+         RowBox[{"p", ",", "2", ",", "3"}], "]"}]}], "]"}]}], "}"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelBullet", "[", "p_", "]"}], ":=", 
+    RowBox[{"Line", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"p", "+", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "0.5"}]}], "}"}]}], ",", 
+       RowBox[{"p", "+", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0.5"}], "}"}]}]}], "}"}], "]"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelPlane", "[", "p_", "]"}], ":=", 
+    RowBox[{"Polygon", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "2"}], ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", 
+          RowBox[{"-", "1"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0.5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}], "+", 
+      RowBox[{"Table", "[", 
+       RowBox[{"p", ",", "6"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelTank", "[", 
+     RowBox[{"p_", ",", "dir_"}], "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{"Gray", ",", 
+      RowBox[{"Rectangle", "[", 
+       RowBox[{
+        RowBox[{"p", "+", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "1"}], ",", 
+           RowBox[{"-", "1"}]}], "}"}]}], ",", 
+        RowBox[{"p", "+", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1"}], "}"}]}], ",", 
+        RowBox[{"RoundingRadius", "\[Rule]", "0.4"}]}], "]"}], ",", "Black", 
+      ",", 
+      RowBox[{"Rotate", "[", 
+       RowBox[{
+        RowBox[{"Rectangle", "[", 
+         RowBox[{
+          RowBox[{"p", "+", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "0.1"}], ",", 
+             RowBox[{"-", "0.2"}]}], "}"}]}], ",", 
+          RowBox[{"p", "+", 
+           RowBox[{"{", 
+            RowBox[{"1.4", ",", "0.2"}], "}"}]}]}], "]"}], ",", 
+        RowBox[{"Arg", "[", 
+         RowBox[{
+          RowBox[{
+          "dir", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], "+", 
+          RowBox[{
+           RowBox[{
+           "dir", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+           "\[ImaginaryI]"}]}], "]"}], ",", "p"}], "]"}]}], "}"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelTankBullet", "[", "p_", "]"}], ":=", 
+    RowBox[{"Disk", "[", 
+     RowBox[{"p", ",", "0.2"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelExplosion", "[", "p_", "]"}], ":=", 
+    RowBox[{"Circle", "[", 
+     RowBox[{"p", ",", "2"}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"modelLife", "[", "p_", "]"}], ":=", 
+    RowBox[{"Disk", "[", 
+     RowBox[{"p", ",", 
+      RowBox[{"{", 
+       RowBox[{"0.5", ",", "0.3"}], "}"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.743984063837778*^9, 3.7439840699611287`*^9}, {
+   3.7439848913441095`*^9, 3.7439849110332355`*^9}, {3.743985127843636*^9, 
+   3.743985140431356*^9}, {3.7439852409611063`*^9, 3.743985241415132*^9}, 
+   3.74398529469518*^9, {3.7770896209614563`*^9, 3.7770896647356405`*^9}, {
+   3.7770897707501945`*^9, 3.7770897723769407`*^9}, {3.777124483196701*^9, 
+   3.77712448838206*^9}, {3.7771245858904*^9, 3.7771246280776186`*^9}, {
+   3.7771247054062448`*^9, 3.7771247673616457`*^9}, {3.777124927950491*^9, 
+   3.77712494006209*^9}, {3.777127770749178*^9, 3.777127784603136*^9}, {
+   3.777131878085019*^9, 3.7771318854154725`*^9}, {3.7771321636199007`*^9, 
+   3.777132165720313*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"f0070c6f-b216-4a60-8088-98ed63b3c28c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "2.", "Game", " ", "Elements", " ", "Update", " ", "and", " ", "Simple", 
+    " ", "Collision", " ", "Detection"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"refreshBullets", "[", 
+     RowBox[{"player_", ",", "bullets_"}], "]"}], ":=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"Append", "[", 
+       RowBox[{"bullets", ",", 
+        RowBox[{"player", "+", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+        "<", 
+        RowBox[{
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "+", "1"}]}], 
+       "&"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"refreshPlanes", "[", 
+     RowBox[{"planes_", ",", "missing_"}], "]"}], ":=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"Append", "[", 
+         RowBox[{"planes", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RandomReal", "[", 
+             RowBox[{
+              RowBox[{
+              "ScreenSize", "\[LeftDoubleBracket]", "1", 
+               "\[RightDoubleBracket]"}], "-", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}], ",", 
+            RowBox[{
+             RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "+", 
+             "1"}]}], "}"}]}], "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+           "\[GreaterEqual]", 
+          RowBox[{
+           RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+            RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "-", "1"}]}], 
+         "&"}]}], "]"}], ",", 
+      RowBox[{"missing", "+", 
+       RowBox[{"Length", "[", 
+        RowBox[{"Select", "[", 
+         RowBox[{"planes", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+            "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], "<", 
+            RowBox[{
+             RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "-", 
+             "1"}]}], "&"}]}], "]"}], "]"}]}]}], "}"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"collisionPlane", "[", 
+     RowBox[{
+     "player_", ",", "bullets_", ",", "planes_", ",", "explosions_", ",", 
+      "score_", ",", "lives_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"hit", ",", "crash"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"hit", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"planes", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Min", "[", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Norm", "[", 
+                RowBox[{"#", "-", "b"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"b", ",", "bullets"}], "}"}]}], "]"}], "]"}], 
+            "\[LessEqual]", "1.5"}], "&"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"crash", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"planes", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Norm", "[", 
+             RowBox[{"#", "-", "player"}], "]"}], "\[LessEqual]", "2"}], 
+           "&"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Select", "[", 
+          RowBox[{"bullets", ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Min", "[", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Norm", "[", 
+                 RowBox[{"#", "-", "p"}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"p", ",", "planes"}], "}"}]}], "]"}], "]"}], ">", 
+             "1.5"}], "&"}]}], "]"}], ",", 
+         RowBox[{"Complement", "[", 
+          RowBox[{"planes", ",", "hit", ",", "crash"}], "]"}], ",", 
+         RowBox[{"Union", "[", 
+          RowBox[{"explosions", ",", "hit", ",", "crash"}], "]"}], ",", 
+         RowBox[{"score", "+", 
+          RowBox[{"5", 
+           RowBox[{"Length", "[", "crash", "]"}]}], "+", 
+          RowBox[{"10", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Complement", "[", 
+             RowBox[{"hit", ",", "crash"}], "]"}], "]"}]}]}], ",", 
+         RowBox[{"lives", "-", 
+          RowBox[{"Length", "[", "crash", "]"}]}]}], "}"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"refreshTanks", "[", "tanks_", "]"}], ":=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"Append", "[", 
+       RowBox[{"tanks", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RandomReal", "[", 
+             RowBox[{
+              RowBox[{
+              "ScreenSize", "\[LeftDoubleBracket]", "1", 
+               "\[RightDoubleBracket]"}], "-", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "]"}], ",", 
+            RowBox[{
+             RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+              RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "+", 
+             "1"}]}], "}"}], ",", "5"}], "}"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#", "\[LeftDoubleBracket]", 
+         RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], ">", 
+        RowBox[{
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "-", "1"}]}], 
+       "&"}]}], "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"refreshTankBullets", "[", 
+     RowBox[{"player_", ",", "tanks_", ",", "tankBullets_"}], "]"}], ":=", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"Join", "[", 
+       RowBox[{"tankBullets", ",", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"tank", "+", 
+             RowBox[{"1.5", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"player", "-", "tank"}], ")"}], "/", 
+               RowBox[{"Norm", "[", 
+                RowBox[{"player", "-", "tank"}], "]"}]}]}]}], ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"player", "-", "tank"}], ")"}], "/", 
+             RowBox[{"Norm", "[", 
+              RowBox[{"player", "-", "tank"}], "]"}]}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"tank", ",", 
+            RowBox[{"Select", "[", 
+             RowBox[{
+              RowBox[{"tanks", "\[LeftDoubleBracket]", 
+               RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+                ">", 
+                RowBox[{
+                "player", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}], "&"}]}], "]"}]}], "}"}]}], 
+         "]"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "\[LessEqual]", 
+         RowBox[{"#", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "\[LessEqual]", 
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}]}], "&&", 
+        RowBox[{
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "\[LessEqual]", 
+         RowBox[{"#", "\[LeftDoubleBracket]", 
+          RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], "\[LessEqual]", 
+         RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+          RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}]}]}], "&"}]}], 
+     "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"collisionTank", "[", 
+     RowBox[{
+     "player_", ",", "bullets_", ",", "tanks_", ",", "tankBullets_", ",", 
+      "explosions_", ",", "score_", ",", "lives_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "hitTank", ",", "deadTank", ",", "hitPlayer", ",", "crash", ",", 
+        "updatedTanks"}], "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"updatedTanks", "=", "tanks"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Destroy", " ", "a", " ", 
+         RowBox[{"tank", "!"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"hitTank", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Range", "[", 
+           RowBox[{"Length", "[", "tanks", "]"}], "]"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Min", "[", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Norm", "[", 
+                RowBox[{
+                 RowBox[{"tanks", "\[LeftDoubleBracket]", 
+                  RowBox[{"#", ",", "1"}], "\[RightDoubleBracket]"}], "-", 
+                 "b"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"b", ",", "bullets"}], "}"}]}], "]"}], "]"}], 
+            "\[LessEqual]", "1.5"}], "&"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"updatedTanks", "\[LeftDoubleBracket]", 
+         RowBox[{"hitTank", ",", "2"}], "\[RightDoubleBracket]"}], "-=", 
+        RowBox[{"Table", "[", 
+         RowBox[{"1", ",", 
+          RowBox[{"Length", "[", "hitTank", "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"deadTank", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"updatedTanks", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+            "#", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+            "\[LessEqual]", "0"}], "&"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Hit", " ", "by", " ", "a", " ", "tank"}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"hitPlayer", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"tankBullets", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Norm", "[", 
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "-", "player"}], "]"}], "\[LessEqual]", "2"}], "&"}]}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Crash", " ", "with", " ", "a", " ", "tank"}], " ", "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"crash", "=", 
+        RowBox[{"Select", "[", 
+         RowBox[{"updatedTanks", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Norm", "[", 
+             RowBox[{
+              RowBox[{
+              "#", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "-", "player"}], "]"}], "\[LessEqual]", "2"}], "&"}]}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Select", "[", 
+          RowBox[{"bullets", ",", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Min", "[", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"Norm", "[", 
+                 RowBox[{"#", "-", 
+                  RowBox[{
+                  "tk", "\[LeftDoubleBracket]", "1", 
+                   "\[RightDoubleBracket]"}]}], "]"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"tk", ",", "tanks"}], "}"}]}], "]"}], "]"}], ">", 
+             "1.5"}], "&"}]}], "]"}], ",", 
+         RowBox[{"Complement", "[", 
+          RowBox[{"updatedTanks", ",", "deadTank", ",", "crash"}], "]"}], ",", 
+         RowBox[{"Complement", "[", 
+          RowBox[{"tankBullets", ",", "hitPlayer"}], "]"}], ",", 
+         RowBox[{"Union", "[", 
+          RowBox[{"explosions", ",", 
+           RowBox[{"deadTank", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+           RowBox[{"crash", "\[LeftDoubleBracket]", 
+            RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}]}], "]"}], 
+         ",", 
+         RowBox[{"score", "+", 
+          RowBox[{"50", 
+           RowBox[{"Length", "[", "deadTank", "]"}]}], "+", 
+          RowBox[{"20", 
+           RowBox[{"Length", "[", 
+            RowBox[{"Complement", "[", 
+             RowBox[{"crash", ",", "deadTank"}], "]"}], "]"}]}]}], ",", 
+         RowBox[{"lives", "-", 
+          RowBox[{"Length", "[", "hitPlayer", "]"}], "-", 
+          RowBox[{"Length", "[", "crash", "]"}]}]}], "}"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.7770898054445887`*^9, 3.7770901133762765`*^9}, {
+   3.7770901480156345`*^9, 3.777090160520214*^9}, {3.777090353297005*^9, 
+   3.777090410193404*^9}, {3.777090584820043*^9, 3.7770906923939505`*^9}, {
+   3.7771212612478156`*^9, 3.777121299517786*^9}, {3.7771213871076207`*^9, 
+   3.7771215327697973`*^9}, {3.7771215887801113`*^9, 
+   3.7771216133205633`*^9}, {3.777121657875429*^9, 3.7771216622437787`*^9}, {
+   3.7771216973987656`*^9, 3.777121724711936*^9}, {3.7771220366360292`*^9, 
+   3.7771220646710787`*^9}, {3.7771221110121913`*^9, 3.777122172957672*^9}, {
+   3.777122249253708*^9, 3.7771222810576754`*^9}, {3.777122330622167*^9, 
+   3.7771223345556607`*^9}, {3.7771223728582783`*^9, 3.777122415447402*^9}, {
+   3.7771224637094817`*^9, 3.7771224923779345`*^9}, {3.7771225479426107`*^9, 
+   3.7771225752655797`*^9}, {3.777122613624016*^9, 3.777122763348055*^9}, {
+   3.77712324500143*^9, 3.777123264598033*^9}, {3.7771232976665897`*^9, 
+   3.7771234451822166`*^9}, {3.7771234961988354`*^9, 
+   3.7771236399283924`*^9}, {3.777123687908101*^9, 3.7771237012943482`*^9}, {
+   3.7771237387501783`*^9, 3.7771238076331406`*^9}, {3.7771238623298845`*^9, 
+   3.777123880407584*^9}, 3.7771239249923553`*^9, {3.777123966797406*^9, 
+   3.777123990768332*^9}, {3.7771240271141453`*^9, 3.777124037531328*^9}, {
+   3.7771258358468337`*^9, 3.7771259046559253`*^9}, {3.777125949299553*^9, 
+   3.7771259677991495`*^9}, {3.7771260093566236`*^9, 
+   3.7771260368969965`*^9}, {3.7771266743847213`*^9, 
+   3.7771267521275535`*^9}, {3.777126782542244*^9, 3.777126811818982*^9}, 
+   3.777127114522295*^9, {3.77713071572707*^9, 3.777130891600232*^9}, 
+   3.7771313660431166`*^9, {3.777131507904451*^9, 3.7771315692141323`*^9}, {
+   3.7771316547095757`*^9, 3.777131690714959*^9}, {3.7771318888223395`*^9, 
+   3.7771319293180523`*^9}, {3.7771321686155453`*^9, 3.777132169025548*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"107a35aa-c9de-4e56-b92a-c32985a134ba"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"3.", "Game", " ", "Settings"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"*", " ", "Difficulty"}], "  ", "**)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"GameSpeed", "=", "0.2"}], ";", 
+    RowBox[{"MaxLives", "=", "3"}], ";", 
+    RowBox[{"MaxMissing", "=", "3"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "*", " ", "Cooldown", " ", "of", " ", "new", " ", "enemy", " ", "and", 
+     " ", 
+     RowBox[{"player", "'"}], "s", " ", "machine", " ", "gun"}], " ", "**)"}],
+    "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PlayerShootingCD", "=", "10"}], ";", 
+    RowBox[{"PlaneCD", "=", "30"}], ";", 
+    RowBox[{"TankCD", "=", "300"}], ";", 
+    RowBox[{"TankBulletCD", "=", "50"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"*", " ", "Game", " ", "constants"}], " ", "**)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"CollisionDetectionCD", "=", "5"}], ";", 
+    RowBox[{"ScreenSize", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "24"}], "}"}]}], "}"}]}], ";", 
+    RowBox[{"ScoreStep", "=", "200"}], ";", 
+    RowBox[{"Acceleration", "=", "0.0"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7439863226779766`*^9, 3.777079556772353*^9, {3.77707960620518*^9, 
+   3.777079658298354*^9}, {3.777079709166357*^9, 3.777079713297312*^9}, {
+   3.7770797747851515`*^9, 3.7770798706980553`*^9}, {3.7770800395528584`*^9, 
+   3.777080048637596*^9}, {3.7770800826356745`*^9, 3.777080155080003*^9}, {
+   3.7770803505400095`*^9, 3.777080396698139*^9}, 3.7770804651640944`*^9, {
+   3.7770805310820026`*^9, 3.7770805380583487`*^9}, {3.7770807500825205`*^9, 
+   3.7770808011942806`*^9}, {3.7770808414430637`*^9, 3.777080871208493*^9}, {
+   3.7770809067756824`*^9, 3.777081003178831*^9}, {3.7770810342807045`*^9, 
+   3.7770810417417393`*^9}, {3.777081219738731*^9, 3.7770812510312567`*^9}, {
+   3.7770812878119307`*^9, 3.7770812927656813`*^9}, {3.777081373921743*^9, 
+   3.777081528855816*^9}, {3.777081576082535*^9, 3.777081593601698*^9}, {
+   3.777081759666993*^9, 3.7770817686789007`*^9}, {3.7770818105060835`*^9, 
+   3.7770818129864473`*^9}, {3.7770818676483135`*^9, 
+   3.7770818808620768`*^9}, {3.777081912613303*^9, 3.7770819202598534`*^9}, {
+   3.777082155684739*^9, 3.777082277651762*^9}, {3.777082353053189*^9, 
+   3.777082653382053*^9}, {3.7770826952092295`*^9, 3.777082731145153*^9}, {
+   3.7770828237655425`*^9, 3.777082840387102*^9}, {3.7770828770989904`*^9, 
+   3.777082950218575*^9}, {3.77708298148897*^9, 3.777082998111724*^9}, {
+   3.777083330619142*^9, 3.7770833857178383`*^9}, {3.7770886610858235`*^9, 
+   3.7770886929325843`*^9}, {3.777088853768295*^9, 3.777088936398329*^9}, {
+   3.7770889831742773`*^9, 3.7770891448662567`*^9}, {3.7770892086888237`*^9, 
+   3.7770893366906195`*^9}, {3.7770893745623455`*^9, 
+   3.7770894208079205`*^9}, {3.777089452567182*^9, 3.7770895890228653`*^9}, {
+   3.7770903066317415`*^9, 3.777090339823036*^9}, {3.7770907010119395`*^9, 
+   3.777090753407853*^9}, {3.7771210756440153`*^9, 3.7771212185928516`*^9}, {
+   3.7771213130885096`*^9, 3.777121319732747*^9}, {3.7771215543212223`*^9, 
+   3.7771215736913958`*^9}, {3.7771224219421434`*^9, 
+   3.7771224248374033`*^9}, {3.77712406125288*^9, 3.77712411313719*^9}, {
+   3.7771242190941114`*^9, 3.7771242505739737`*^9}, {3.777124299755474*^9, 
+   3.777124386705225*^9}, {3.777124423467967*^9, 3.7771245724543276`*^9}, {
+   3.7771246590088987`*^9, 3.7771247229164505`*^9}, {3.7771247751657476`*^9, 
+   3.7771248252428713`*^9}, {3.777124971088152*^9, 3.7771251232518315`*^9}, {
+   3.777125155441739*^9, 3.7771252881156807`*^9}, {3.777125319917663*^9, 
+   3.777125372912983*^9}, {3.777125407569354*^9, 3.7771254427413964`*^9}, {
+   3.777125511186628*^9, 3.777125568150339*^9}, {3.7771257007809224`*^9, 
+   3.7771257485442553`*^9}, {3.7771258157545805`*^9, 
+   3.7771258162133512`*^9}, {3.777125910821417*^9, 3.7771259207389016`*^9}, {
+   3.7771259811135335`*^9, 3.777125985501828*^9}, {3.7771268558572226`*^9, 
+   3.777126937109301*^9}, {3.7771269954074526`*^9, 3.777127063986376*^9}, 
+   3.777127838749613*^9, {3.7771278722161427`*^9, 3.7771278725323067`*^9}, {
+   3.777127914736496*^9, 3.7771279425142326`*^9}, {3.777128042955832*^9, 
+   3.777128043501348*^9}, {3.7771282105537677`*^9, 3.7771282114463987`*^9}, {
+   3.777128259980605*^9, 3.7771282997514076`*^9}, {3.7771283416310472`*^9, 
+   3.77712834225439*^9}, {3.7771284445185623`*^9, 3.777128448680415*^9}, {
+   3.7771284835871286`*^9, 3.7771284894644175`*^9}, {3.7771285756600847`*^9, 
+   3.7771287608644037`*^9}, {3.777128804962504*^9, 3.777128822758929*^9}, {
+   3.7771288681675386`*^9, 3.777128872653993*^9}, {3.7771289063808746`*^9, 
+   3.7771289069583044`*^9}, {3.777128965377153*^9, 3.7771289763887043`*^9}, {
+   3.7771290064453325`*^9, 3.777129083408374*^9}, {3.777129122677868*^9, 
+   3.7771291306894455`*^9}, {3.777129176239443*^9, 3.7771291938099794`*^9}, {
+   3.7771292366554255`*^9, 3.7771293439908233`*^9}, {3.7771294359419627`*^9, 
+   3.7771294568391237`*^9}, 3.777129502667611*^9, {3.777129547319208*^9, 
+   3.7771295970766697`*^9}, {3.77712963124934*^9, 3.7771297183528533`*^9}, {
+   3.7771297595168095`*^9, 3.7771297907071753`*^9}, {3.7771298238705144`*^9, 
+   3.7771300039353294`*^9}, {3.777130039761525*^9, 3.7771300401944027`*^9}, {
+   3.7771300834886513`*^9, 3.7771300901258984`*^9}, {3.777130151113853*^9, 
+   3.7771301538036475`*^9}, {3.777130187328549*^9, 3.777130241855774*^9}, {
+   3.777130326883485*^9, 3.777130464914336*^9}, {3.7771305103599434`*^9, 
+   3.7771305738220043`*^9}, {3.7771306234932795`*^9, 
+   3.7771307028684444`*^9}, {3.777130934131648*^9, 3.777130957472219*^9}, {
+   3.7771310455856533`*^9, 3.777131054852878*^9}, {3.7771310941428633`*^9, 
+   3.7771311840083666`*^9}, {3.7771312976270094`*^9, 3.777131319856558*^9}, {
+   3.777131552786004*^9, 3.7771315541772547`*^9}, {3.777131718125682*^9, 
+   3.7771317193224597`*^9}, {3.7771317578155503`*^9, 
+   3.7771317850597143`*^9}, {3.777131816207471*^9, 3.777131816331114*^9}, {
+   3.7771318702809105`*^9, 3.777131870398592*^9}, {3.7771319926487427`*^9, 
+   3.777132012683236*^9}, 3.777132043720253*^9, {3.777132171688602*^9, 
+   3.777132172069565*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"4.", "Run"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"time", "=", "0"}], ";", 
+    RowBox[{"score", "=", "0"}], ";", 
+    RowBox[{"missing", "=", "0"}], ";", 
+    RowBox[{"lives", "=", "MaxLives"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"bullets", "=", 
+     RowBox[{"{", "}"}]}], ";", 
+    RowBox[{"planes", "=", 
+     RowBox[{"{", "}"}]}], ";", 
+    RowBox[{"tanks", "=", 
+     RowBox[{"{", "}"}]}], ";", 
+    RowBox[{"tankBullets", "=", 
+     RowBox[{"{", "}"}]}], ";", 
+    RowBox[{"explosions", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\n", 
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"lives", ">", "0"}], "&&", 
+        RowBox[{"missing", "\[LessEqual]", "MaxMissing"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"time", "++"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"explosions", "=", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{
+          RowBox[{"Player", "'"}], "s", " ", "firing"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "PlayerShootingCD"}], "]"}]}], ",", 
+          RowBox[{"bullets", "=", 
+           RowBox[{"refreshBullets", "[", 
+            RowBox[{"player", ",", "bullets"}], "]"}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"Interaction", " ", "with", " ", "planes"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "PlaneCD"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"planes", ",", "missing"}], "}"}], "=", 
+           RowBox[{"refreshPlanes", "[", 
+            RowBox[{"planes", ",", "missing"}], "]"}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "CollisionDetectionCD"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+             "bullets", ",", "planes", ",", "explosions", ",", "score", ",", 
+              "lives"}], "}"}], "=", 
+            RowBox[{"collisionPlane", "[", 
+             RowBox[{
+             "player", ",", "bullets", ",", "planes", ",", "explosions", ",", 
+              "score", ",", "lives"}], "]"}]}], ";"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"Interaction", " ", "with", " ", "tanks"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "TankCD"}], "]"}]}], ",", 
+          RowBox[{"tanks", "=", 
+           RowBox[{"refreshTanks", "[", "tanks", "]"}]}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "TankBulletCD"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"tankBullets", "=", 
+            RowBox[{"refreshTankBullets", "[", 
+             RowBox[{"player", ",", "tanks", ",", "tankBullets"}], "]"}]}], 
+           ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"0", "\[Equal]", 
+           RowBox[{"Mod", "[", 
+            RowBox[{"time", ",", "CollisionDetectionCD"}], "]"}]}], ",", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "bullets", ",", "tanks", ",", "tankBullets", ",", "explosions", 
+             ",", "score", ",", "lives"}], "}"}], "=", 
+           RowBox[{"collisionTank", "[", 
+            RowBox[{
+            "player", ",", "bullets", ",", "tanks", ",", "tankBullets", ",", 
+             "explosions", ",", "score", ",", "lives"}], "]"}]}]}], "]"}], 
+        ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", " ", 
+         RowBox[{"Update", " ", "display"}], " ", "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"v", "=", 
+         RowBox[{"GameSpeed", "*", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"1", "+", "Acceleration"}], ")"}], "^", 
+           RowBox[{"Floor", "[", 
+            RowBox[{"score", "/", "ScoreStep"}], "]"}]}]}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"planes", "+=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"-", "v"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Length", "[", "planes", "]"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"bullets", "+=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"3", "v"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Length", "[", "bullets", "]"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tanks", "\[LeftDoubleBracket]", 
+          RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], "+=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{
+              RowBox[{"-", "v"}], "/", "3"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Length", "[", "tanks", "]"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"tankBullets", "\[LeftDoubleBracket]", 
+          RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], "+=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"v", "*", "dir"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"dir", ",", 
+             RowBox[{"tankBullets", "\[LeftDoubleBracket]", 
+              RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}]}], "}"}]}],
+           "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"Game", " ", "Display"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"shapes", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{
+           RowBox[{"Map", "[", 
+            RowBox[{"modelPlane", ",", "planes"}], "]"}], ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"modelBullet", ",", "bullets"}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"modelTank", "[", 
+              RowBox[{
+               RowBox[{
+               "tk", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+               ",", 
+               RowBox[{"player", "-", 
+                RowBox[{
+                "tk", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}]}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"tk", ",", "tanks"}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"modelTankBullet", "[", 
+              RowBox[{
+              "tb", "\[LeftDoubleBracket]", "1", "\[RightDoubleBracket]"}], 
+              "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"tb", ",", "tankBullets"}], "}"}]}], "]"}], ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"modelExplosion", "[", "ep", "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"ep", ",", "explosions"}], "}"}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"modelPlayer", "[", "player", "]"}], ",", "Red"}], "}"}],
+            ",", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"modelLife", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+                  RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], "+", 
+                 "1", "-", 
+                 RowBox[{"2", "l"}]}], ",", 
+                RowBox[{
+                 RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+                  RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "-", 
+                 "1"}]}], "}"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"l", ",", "lives"}], "}"}]}], "]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"scoreDisplay", "=", 
+         RowBox[{"{", 
+          RowBox[{"Blue", ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"score", ",", 
+               RowBox[{"FontSize", "\[Rule]", "24"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+                 RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "+", 
+                "2"}], ",", 
+               RowBox[{
+                RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+                 RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "-", 
+                "1"}]}], "}"}], ",", 
+             RowBox[{"Background", "\[Rule]", "Transparent"}]}], "]"}]}], 
+          "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{
+          RowBox[{"Join", "[", 
+           RowBox[{"shapes", ",", "scoreDisplay"}], "]"}], ",", 
+          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"Game", " ", "Over"}], " ", "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Black", ",", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{
+             RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+              RowBox[{"All", ",", "1"}], "\[RightDoubleBracket]"}], ",", 
+             RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+              RowBox[{"All", ",", "2"}], "\[RightDoubleBracket]"}]}], "]"}], 
+           ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\< Game Over! \>\"", ",", 
+               RowBox[{"FontSize", "\[Rule]", "36"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Mean", "[", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"1", "/", "3"}], ",", 
+                  RowBox[{"2", "/", "3"}]}], "}"}], ".", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}], ",", 
+             RowBox[{"Background", "\[Rule]", "White"}]}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"\"\< Score: \>\"", ",", 
+               RowBox[{"FontSize", "\[Rule]", "24"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Mean", "[", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"1", "/", "2"}], ",", 
+                  RowBox[{"1", "/", "2"}]}], "}"}], ".", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}], ",", 
+             RowBox[{"Background", "\[Rule]", "White"}]}], "]"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{"score", ",", "Blue", ",", 
+               RowBox[{"FontSize", "\[Rule]", "24"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Mean", "[", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "1", 
+                 "\[RightDoubleBracket]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"2", "/", "3"}], ",", 
+                  RowBox[{"1", "/", "3"}]}], "}"}], ".", 
+                RowBox[{
+                "ScreenSize", "\[LeftDoubleBracket]", "2", 
+                 "\[RightDoubleBracket]"}]}]}], "}"}], ",", 
+             RowBox[{"Background", "\[Rule]", "White"}]}], "]"}]}], "}"}], 
+         ",", 
+         RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+         RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}]}], "]"}]}], 
+      "\[IndentingNewLine]", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"player", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+           RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "+", "1.5"}], 
+         ",", 
+         RowBox[{
+          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "+", "2"}]}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+           RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], "-", "1.5"}], 
+         ",", 
+         RowBox[{
+          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+           RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "-", "2"}]}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Right"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7439863226779766`*^9, 3.777079556772353*^9, {3.77707960620518*^9, 
+   3.777079658298354*^9}, {3.777079709166357*^9, 3.777079713297312*^9}, {
+   3.7770797747851515`*^9, 3.7770798706980553`*^9}, {3.7770800395528584`*^9, 
+   3.777080048637596*^9}, {3.7770800826356745`*^9, 3.777080155080003*^9}, {
+   3.7770803505400095`*^9, 3.777080396698139*^9}, 3.7770804651640944`*^9, {
+   3.7770805310820026`*^9, 3.7770805380583487`*^9}, {3.7770807500825205`*^9, 
+   3.7770808011942806`*^9}, {3.7770808414430637`*^9, 3.777080871208493*^9}, {
+   3.7770809067756824`*^9, 3.777081003178831*^9}, {3.7770810342807045`*^9, 
+   3.7770810417417393`*^9}, {3.777081219738731*^9, 3.7770812510312567`*^9}, {
+   3.7770812878119307`*^9, 3.7770812927656813`*^9}, {3.777081373921743*^9, 
+   3.777081528855816*^9}, {3.777081576082535*^9, 3.777081593601698*^9}, {
+   3.777081759666993*^9, 3.7770817686789007`*^9}, {3.7770818105060835`*^9, 
+   3.7770818129864473`*^9}, {3.7770818676483135`*^9, 
+   3.7770818808620768`*^9}, {3.777081912613303*^9, 3.7770819202598534`*^9}, {
+   3.777082155684739*^9, 3.777082277651762*^9}, {3.777082353053189*^9, 
+   3.777082653382053*^9}, {3.7770826952092295`*^9, 3.777082731145153*^9}, {
+   3.7770828237655425`*^9, 3.777082840387102*^9}, {3.7770828770989904`*^9, 
+   3.777082950218575*^9}, {3.77708298148897*^9, 3.777082998111724*^9}, {
+   3.777083330619142*^9, 3.7770833857178383`*^9}, {3.7770886610858235`*^9, 
+   3.7770886929325843`*^9}, {3.777088853768295*^9, 3.777088936398329*^9}, {
+   3.7770889831742773`*^9, 3.7770891448662567`*^9}, {3.7770892086888237`*^9, 
+   3.7770893366906195`*^9}, {3.7770893745623455`*^9, 
+   3.7770894208079205`*^9}, {3.777089452567182*^9, 3.7770895890228653`*^9}, {
+   3.7770903066317415`*^9, 3.777090339823036*^9}, {3.7770907010119395`*^9, 
+   3.777090753407853*^9}, {3.7771210756440153`*^9, 3.7771212185928516`*^9}, {
+   3.7771213130885096`*^9, 3.777121319732747*^9}, {3.7771215543212223`*^9, 
+   3.7771215736913958`*^9}, {3.7771224219421434`*^9, 
+   3.7771224248374033`*^9}, {3.77712406125288*^9, 3.77712411313719*^9}, {
+   3.7771242190941114`*^9, 3.7771242505739737`*^9}, {3.777124299755474*^9, 
+   3.777124386705225*^9}, {3.777124423467967*^9, 3.7771245724543276`*^9}, {
+   3.7771246590088987`*^9, 3.7771247229164505`*^9}, {3.7771247751657476`*^9, 
+   3.7771248252428713`*^9}, {3.777124971088152*^9, 3.7771251232518315`*^9}, {
+   3.777125155441739*^9, 3.7771252881156807`*^9}, {3.777125319917663*^9, 
+   3.777125372912983*^9}, {3.777125407569354*^9, 3.7771254427413964`*^9}, {
+   3.777125511186628*^9, 3.777125568150339*^9}, {3.7771257007809224`*^9, 
+   3.7771257485442553`*^9}, {3.7771258157545805`*^9, 
+   3.7771258162133512`*^9}, {3.777125910821417*^9, 3.7771259207389016`*^9}, {
+   3.7771259811135335`*^9, 3.777125985501828*^9}, {3.7771268558572226`*^9, 
+   3.777126937109301*^9}, {3.7771269954074526`*^9, 3.777127063986376*^9}, 
+   3.777127838749613*^9, {3.7771278722161427`*^9, 3.7771278725323067`*^9}, {
+   3.777127914736496*^9, 3.7771279425142326`*^9}, {3.777128042955832*^9, 
+   3.777128043501348*^9}, {3.7771282105537677`*^9, 3.7771282114463987`*^9}, {
+   3.777128259980605*^9, 3.7771282997514076`*^9}, {3.7771283416310472`*^9, 
+   3.77712834225439*^9}, {3.7771284445185623`*^9, 3.777128448680415*^9}, {
+   3.7771284835871286`*^9, 3.7771284894644175`*^9}, {3.7771285756600847`*^9, 
+   3.7771287608644037`*^9}, {3.777128804962504*^9, 3.777128822758929*^9}, {
+   3.7771288681675386`*^9, 3.777128872653993*^9}, {3.7771289063808746`*^9, 
+   3.7771289069583044`*^9}, {3.777128965377153*^9, 3.7771289763887043`*^9}, {
+   3.7771290064453325`*^9, 3.777129083408374*^9}, {3.777129122677868*^9, 
+   3.7771291306894455`*^9}, {3.777129176239443*^9, 3.7771291938099794`*^9}, {
+   3.7771292366554255`*^9, 3.7771293439908233`*^9}, {3.7771294359419627`*^9, 
+   3.7771294568391237`*^9}, 3.777129502667611*^9, {3.777129547319208*^9, 
+   3.7771295970766697`*^9}, {3.77712963124934*^9, 3.7771297183528533`*^9}, {
+   3.7771297595168095`*^9, 3.7771297907071753`*^9}, {3.7771298238705144`*^9, 
+   3.7771300039353294`*^9}, {3.777130039761525*^9, 3.7771300401944027`*^9}, {
+   3.7771300834886513`*^9, 3.7771300901258984`*^9}, {3.777130151113853*^9, 
+   3.7771301538036475`*^9}, {3.777130187328549*^9, 3.777130241855774*^9}, {
+   3.777130326883485*^9, 3.777130464914336*^9}, {3.7771305103599434`*^9, 
+   3.7771305738220043`*^9}, {3.7771306234932795`*^9, 
+   3.7771307028684444`*^9}, {3.777130934131648*^9, 3.777130957472219*^9}, {
+   3.7771310455856533`*^9, 3.777131054852878*^9}, {3.7771310941428633`*^9, 
+   3.7771311840083666`*^9}, {3.7771312976270094`*^9, 3.777131319856558*^9}, {
+   3.777131552786004*^9, 3.7771315541772547`*^9}, {3.777131718125682*^9, 
+   3.7771317193224597`*^9}, {3.7771317578155503`*^9, 
+   3.7771317850597143`*^9}, {3.777131816207471*^9, 3.777131816331114*^9}, {
+   3.7771318702809105`*^9, 3.777131870398592*^9}, {3.7771319926487427`*^9, 
+   3.7771320263740377`*^9}, {3.777132175366747*^9, 3.7771321756550035`*^9}, {
+   3.777162461140229*^9, 
+   3.7771625281957893`*^9}},ExpressionUUID->"e811f58f-15a4-4c51-b2cf-\
+dd0220c7988c"]
+},
+WindowSize->{1904, 997},
+WindowMargins->{{9, Automatic}, {Automatic, 325}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 651, 17, 28, "Input",ExpressionUUID->"125d9e7a-63b4-441f-bed9-71f8b21de3d2"],
+Cell[1212, 39, 6228, 175, 181, "Input",ExpressionUUID->"f0070c6f-b216-4a60-8088-98ed63b3c28c"],
+Cell[7443, 216, 14958, 358, 466, "Input",ExpressionUUID->"107a35aa-c9de-4e56-b92a-c32985a134ba"],
+Cell[22404, 576, 6481, 108, 200, "Input",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
+Cell[28888, 686, 19171, 417, 713, "Input",ExpressionUUID->"e811f58f-15a4-4c51-b2cf-dd0220c7988c"]
+}
+]
+*)
+
