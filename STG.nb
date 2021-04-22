@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     48748,       1122]
-NotebookOptionsPosition[     48063,       1105]
-NotebookOutlinePosition[     48406,       1120]
-CellTagsIndexPosition[     48363,       1117]
+NotebookDataLength[     48762,       1117]
+NotebookOptionsPosition[     48077,       1100]
+NotebookOutlinePosition[     48420,       1115]
+CellTagsIndexPosition[     48377,       1112]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -607,10 +607,10 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+         RowBox[{"-", "15"}], ",", "15"}], "}"}], ",", 
        RowBox[{"{", 
         RowBox[{
-         RowBox[{"-", "2"}], ",", "24"}], "}"}]}], "}"}]}], ";", 
+         RowBox[{"-", "3"}], ",", "36"}], "}"}]}], "}"}]}], ";", 
     RowBox[{"ScoreStep", "=", "200"}], ";", 
     RowBox[{"Acceleration", "=", "0.0"}], ";"}]}]}]], "Input",
  CellChangeTimes->{
@@ -681,8 +681,9 @@ Cell[BoxData[
    3.7771317850597143`*^9}, {3.777131816207471*^9, 3.777131816331114*^9}, {
    3.7771318702809105`*^9, 3.777131870398592*^9}, {3.7771319926487427`*^9, 
    3.777132012683236*^9}, 3.777132043720253*^9, {3.777132171688602*^9, 
-   3.777132172069565*^9}},
- CellLabel->"In[14]:=",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
+   3.777132172069565*^9}, {3.828116477955733*^9, 3.828116479500466*^9}, {
+   3.828116518363795*^9, 3.828116521966726*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
 
 Cell[BoxData[
  RowBox[{
@@ -929,7 +930,8 @@ Cell[BoxData[
           RowBox[{"Join", "[", 
            RowBox[{"shapes", ",", "scoreDisplay"}], "]"}], ",", 
           RowBox[{"Axes", "\[Rule]", "False"}], ",", 
-          RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}]}], "]"}]}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]}], ",", 
        "\[IndentingNewLine]", "\[IndentingNewLine]", 
        RowBox[{"(*", " ", 
         RowBox[{"Game", " ", "Over"}], " ", "*)"}], "\[IndentingNewLine]", 
@@ -1006,31 +1008,23 @@ Cell[BoxData[
              RowBox[{"Background", "\[Rule]", "White"}]}], "]"}]}], "}"}], 
          ",", 
          RowBox[{"Axes", "\[Rule]", "False"}], ",", 
-         RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}]}], "]"}]}], 
+         RowBox[{"PlotRange", "\[Rule]", "ScreenSize"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}]}], 
       "\[IndentingNewLine]", "]"}], ",", 
      RowBox[{"{", 
-      RowBox[{"player", ",", 
+      RowBox[{
        RowBox[{"{", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
-           RowBox[{"1", ",", "1"}], "\[RightDoubleBracket]"}], "+", "1.5"}], 
-         ",", 
-         RowBox[{
-          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
-           RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "+", "2"}]}], 
-        "}"}], ",", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{
-          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
-           RowBox[{"1", ",", "2"}], "\[RightDoubleBracket]"}], "-", "1.5"}], 
-         ",", 
-         RowBox[{
-          RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
-           RowBox[{"2", ",", "2"}], "\[RightDoubleBracket]"}], "-", "2"}]}], 
-        "}"}]}], "}"}], ",", 
-     RowBox[{"ControlPlacement", "\[Rule]", "Right"}]}], "]"}]}]}]], "Input",
+        RowBox[{"player", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Mean", "[", 
+            RowBox[{
+            "ScreenSize", "\[LeftDoubleBracket]", "1", 
+             "\[RightDoubleBracket]"}], "]"}], ",", 
+           RowBox[{
+            RowBox[{"ScreenSize", "\[LeftDoubleBracket]", 
+             RowBox[{"2", ",", "1"}], "\[RightDoubleBracket]"}], "+", "2"}]}],
+           "}"}]}], "}"}], ",", "Locator"}], "}"}]}], "]"}]}]}]], "Input",
  CellChangeTimes->{
   3.7439863226779766`*^9, 3.777079556772353*^9, {3.77707960620518*^9, 
    3.777079658298354*^9}, {3.777079709166357*^9, 3.777079713297312*^9}, {
@@ -1099,12 +1093,13 @@ Cell[BoxData[
    3.7771317850597143`*^9}, {3.777131816207471*^9, 3.777131816331114*^9}, {
    3.7771318702809105`*^9, 3.777131870398592*^9}, {3.7771319926487427`*^9, 
    3.7771320263740377`*^9}, {3.777132175366747*^9, 3.7771321756550035`*^9}, {
-   3.777162461140229*^9, 
-   3.7771625281957893`*^9}},ExpressionUUID->"e811f58f-15a4-4c51-b2cf-\
-dd0220c7988c"]
+   3.777162461140229*^9, 3.7771625281957893`*^9}, {3.8281132969766216`*^9, 
+   3.828113342445979*^9}, {3.8281136099786186`*^9, 3.8281136224434767`*^9}, {
+   3.8281137828388586`*^9, 3.828113787683558*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"e811f58f-15a4-4c51-b2cf-dd0220c7988c"]
 },
-WindowSize->{1904, 997},
-WindowMargins->{{9, Automatic}, {Automatic, 325}},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
 FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1122,8 +1117,8 @@ Notebook[{
 Cell[558, 20, 651, 17, 28, "Input",ExpressionUUID->"125d9e7a-63b4-441f-bed9-71f8b21de3d2"],
 Cell[1212, 39, 6228, 175, 181, "Input",ExpressionUUID->"f0070c6f-b216-4a60-8088-98ed63b3c28c"],
 Cell[7443, 216, 14958, 358, 466, "Input",ExpressionUUID->"107a35aa-c9de-4e56-b92a-c32985a134ba"],
-Cell[22404, 576, 6481, 108, 200, "Input",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
-Cell[28888, 686, 19171, 417, 713, "Input",ExpressionUUID->"e811f58f-15a4-4c51-b2cf-dd0220c7988c"]
+Cell[22404, 576, 6577, 109, 200, "Input",ExpressionUUID->"01bbfe78-569b-4da2-b865-8043c34c5c8b"],
+Cell[28984, 687, 19089, 411, 713, "Input",ExpressionUUID->"e811f58f-15a4-4c51-b2cf-dd0220c7988c"]
 }
 ]
 *)
